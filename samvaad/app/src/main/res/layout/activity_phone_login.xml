@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PhoneLoginActivity"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:fontFamily="cursive"
+        android:text="ChatApp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="40sp"
+        android:textStyle="bold"
+
+
+        />
+
+    <ImageView
+        android:id="@+id/login_phone_image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/app_name"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="140dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/venom" />
+
+    <EditText
+        android:id="@+id/phone_input"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/inputs"
+        android:padding="8dp"
+        android:hint="enter phone number"
+        android:textAllCaps="false"
+        android:drawableStart="@drawable/telephone"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_phone_image"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttons"
+        android:layout_below="@+id/phone_input"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="send verification code"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/verification_code_button"
+        />
+
+    <EditText
+        android:id="@+id/verification_code"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/inputs"
+        android:padding="8dp"
+        android:hint="enter the code we sent you"
+        android:textAllCaps="false"
+        android:drawableStart="@drawable/password"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_phone_image"
+        android:visibility="gone"
+
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttons"
+        android:layout_below="@+id/phone_input"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="submit"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/confirm_verification_code"
+        android:visibility="gone"
+        />
+
+
+</RelativeLayout>

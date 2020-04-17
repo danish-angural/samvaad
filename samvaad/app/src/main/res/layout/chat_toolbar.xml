@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImage"
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="50dp"
+        android:src="@drawable/avatar"
+        android:cropToPadding="true"
+        android:layout_marginRight="10dp"
+        />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Display UserName"
+        android:textColor="@android:color/background_light"
+        android:layout_marginLeft="100dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_toEndOf="@+id/profileImage" />
+
+    <TextView
+        android:id="@+id/custom_user_last_seen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:layout_marginTop="3dp"
+        android:text=""
+        android:layout_marginLeft="100dp"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold"
+        android:textSize="14sp"/>
+</RelativeLayout>

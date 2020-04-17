@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@color/colorPrimary"/>
+
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/buttons"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:text="&#x2190;"
+        android:id="@+id/return_button"
+
+
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/set_profile_image"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:src="@drawable/avatar"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/colorPrimary"
+        android:layout_marginTop="115dp"
+        android:layout_centerHorizontal="true"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/display_username"
+            android:layout_below="@id/set_profile_image"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/background_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/username_text"
+        android:layout_below="@+id/set_profile_image"
+        android:layout_marginTop="40dp"
+        android:textAlignment="viewStart"
+        android:text="change username"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/username_Text"
+        android:layout_below="@+id/username_text"
+        android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
+        android:text="this is the name by which you are visible to people outside your friends list"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/set_username"
+        android:layout_below="@+id/username_Text"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="30dp"
+        android:visibility="gone"
+        android:layout_marginLeft="10dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="change"
+        android:background="@color/colorPrimary"
+        android:id="@+id/change_username_button"
+        android:layout_below="@id/set_username"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+
+
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/password_text"
+        android:layout_below="@+id/change_username_button"
+        android:layout_marginTop="40dp"
+        android:textAlignment="viewStart"
+        android:text="change password"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginLeft="10dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirm_email"
+        android:layout_below="@+id/password_text"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="30dp"
+        android:visibility="gone"
+        android:layout_marginLeft="10dp"
+        android:hint="enter your email"
+        />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/confirm_password"
+            android:layout_below="@+id/confirm_email"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="30dp"
+            android:visibility="gone"
+            android:layout_marginLeft="10dp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="submit"
+            android:background="@color/colorPrimary"
+            android:id="@+id/submit_confirmation"
+            android:layout_below="@id/confirm_password"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            />
+
+        <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/set_password"
+        android:layout_below="@+id/confirm_password"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="30dp"
+        android:visibility="gone"
+        android:layout_marginLeft="10dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="change"
+        android:background="@color/colorPrimary"
+        android:id="@+id/change_password_button"
+        android:layout_below="@id/set_password"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/phone_text"
+        android:layout_below="@+id/change_password_button"
+        android:layout_marginTop="40dp"
+        android:textAlignment="viewStart"
+        android:text="change mobile number"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginLeft="10dp"
+        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/phone"
+            android:layout_below="@+id/phone_text"
+            android:layout_marginTop="40dp"
+            android:textAlignment="viewStart"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginLeft="10dp"
+            android:visibility="gone"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phone"
+            android:id="@+id/confirm_password2"
+            android:hint="enter password"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:visibility="gone"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/confirm_password2"
+            android:background="@drawable/buttons"
+            android:text="confirm"
+            android:id="@+id/confirm_password_button"
+            android:visibility="gone"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phone_text"
+            android:id="@+id/phone_number"
+            android:hint="enter phone number"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:visibility="gone"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/phone_number"
+            android:background="@drawable/buttons"
+            android:text="send OTP"
+            android:id="@+id/send_OTP"
+            android:visibility="gone"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/phone_text"
+            android:id="@+id/OTP"
+            android:hint="enter the 6 digit code we just sent you."
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:visibility="gone"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/OTP"
+            android:visibility="gone"
+            android:background="@drawable/buttons"
+            android:text="confirm"
+            android:id="@+id/submit"
+            />
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/status_text"
+        android:layout_below="@+id/confirm_password_button"
+        android:layout_marginTop="40dp"
+        android:textAlignment="viewStart"
+        android:text="change status"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/status_Text"
+        android:layout_below="@+id/status_text"
+        android:layout_marginTop="10dp"
+        android:textAlignment="viewStart"
+        android:text="your status is visible to everyone in your contacts"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/set_status"
+        android:layout_below="@+id/status_Text"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="10dp"
+        android:text=""
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="change"
+        android:background="@color/colorPrimary"
+        android:id="@+id/change_status_button"
+        android:layout_below="@id/set_status"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+
+
+
+        />
+
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/about_text"
+            android:layout_below="@+id/change_status_button"
+            android:layout_marginTop="40dp"
+            android:textAlignment="viewStart"
+            android:text="change description"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginLeft="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/about_Text"
+            android:layout_below="@+id/about_text"
+            android:layout_marginTop="10dp"
+            android:textAlignment="viewStart"
+            android:text="your description is visible to whoever looks at your profile"
+            android:textSize="15sp"
+            android:layout_marginLeft="10dp"
+
+            />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/set_about"
+            android:layout_below="@+id/about_Text"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="10dp"
+            android:text=""
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="change"
+            android:background="@color/colorPrimary"
+            android:id="@+id/change_about_button"
+            android:layout_below="@id/set_about"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+
+
+
+            />
+
+
+
+    </RelativeLayout>
+
+</ScrollView>
+
+
+</RelativeLayout>
