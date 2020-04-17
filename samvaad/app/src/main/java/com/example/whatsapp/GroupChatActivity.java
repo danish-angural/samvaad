@@ -87,8 +87,10 @@ public class GroupChatActivity extends AppCompatActivity {
                     messageMap.put("datetime", time);
                     messageMap.put("message", Message);
                     messageMap.put("sender",myname);
-                    String s=String.valueOf(message_count+1);
-                    Group_referrence.child(s).updateChildren(messageMap);
+                    int i = (int) new Date().getTime();
+                    String s=String.valueOf(i);
+                    Group_referrence.child("last_message").setValue(i);
+                    Group_referrence.child(s).child("messages").updateChildren(messageMap);
                     GroupchatRecyclerList.smoothScrollToPosition(GroupchatRecyclerList.getAdapter().getItemCount());
                     message_input.setText("");
                 }
@@ -105,7 +107,7 @@ public class GroupChatActivity extends AppCompatActivity {
         });
         FirebaseRecyclerOptions<Messages> options =
                 new FirebaseRecyclerOptions.Builder<Messages>()
-                        .setQuery(Group_referrence, Messages.class)
+                        .setQuery(Group_referrence.child("messages"), Messages.class)
                         .build();
 
         final FirebaseRecyclerAdapter<Messages, GroupchatViewHolder> adapter =

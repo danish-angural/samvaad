@@ -50,6 +50,7 @@ public class groupFragment extends Fragment {
         groupFragmentView = inflater.inflate(R.layout.fragment_group, container, false);
 
         GroupRef = FirebaseDatabase.getInstance().getReference().child("Groups");
+        GroupRef.orderByChild("last_message");
         initializeFields();
 
         RetrieveAndDisplayGroups();

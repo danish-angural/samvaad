@@ -2,6 +2,7 @@ package com.example.whatsapp;
 
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -99,6 +101,9 @@ public class contactFragment extends Fragment {
                         String profileStatus = dataSnapshot.child("status").getValue().toString();
                         holder.userName.setText(profileName);
                         holder.userStatus.setText(profileStatus);
+                        if (dataSnapshot.child("state").getValue().toString().equals("online")){
+                            holder.status.setVisibility(View.VISIBLE);
+                        }
 
                     }
 
@@ -128,6 +133,8 @@ public class contactFragment extends Fragment {
 
         TextView userName, userStatus;
         CircleImageView profileImage;
+        ImageView status;
+
 
         public ContactsViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -135,6 +142,7 @@ public class contactFragment extends Fragment {
             userName = itemView.findViewById(R.id.user_profile_name);
             userStatus = itemView.findViewById(R.id.user_status);
             profileImage = itemView.findViewById(R.id.users_profile_image);
+            status=itemView.findViewById(R.id.user_online_status);
         }
     }
 }

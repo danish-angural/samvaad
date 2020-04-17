@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -89,6 +90,9 @@ public class chatsFragment extends Fragment {
                 UsersRef.child(usersIDs).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child("status").getValue().toString().equals("online")){
+                            holder.status.setVisibility(View.VISIBLE);
+                        }
                         if (dataSnapshot.hasChild("image")) {
                             String userImage = dataSnapshot.child("image").getValue().toString();
                             Picasso.get().load(userImage).placeholder(R.drawable.avatar).into(holder.profileImage);
@@ -126,6 +130,7 @@ public class chatsFragment extends Fragment {
 
         TextView userName, userStatus;
         CircleImageView profileImage;
+        ImageView state;
 
         public ContactsViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -133,6 +138,7 @@ public class chatsFragment extends Fragment {
             userName = itemView.findViewById(R.id.user_profile_name);
             userStatus = itemView.findViewById(R.id.user_status);
             profileImage = itemView.findViewById(R.id.users_profile_image);
+            state = itemView.findViewById(R.id.custom_user_last_seen);
         }
     }
 

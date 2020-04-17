@@ -29,6 +29,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.sql.DatabaseMetaData;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,7 +77,20 @@ public class MainActivity extends AppCompatActivity {
 
         else {
             VerifyUserExistence();
+            updateStatus("online");
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    updateStatus("offline");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        updateStatus("offline");
     }
 
     private void VerifyUserExistence() {
@@ -223,6 +238,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private void updateStatus(String state){
+        String last_seen;
+        Calendar calendar= Calendar.getInstance();
+        SimpleDateFormat format= new SimpleDateFormat("hh:mm");
+        last_seen=format.format(calendar.getTime());
+        FirebaseDatabase.getInstance().getReference().child("Users").child(currentUser.getUid()).child("last_seen").setValue(last_seen);
+        FirebaseDatabase.getInstance().getReference().child("Users").child(currentUser.getUid()).child("state").setValue(state);
 
+    }
 
 }

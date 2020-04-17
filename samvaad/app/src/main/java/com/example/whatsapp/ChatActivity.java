@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
 import android.text.TextUtils;
+import android.text.format.Time;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +51,7 @@ public class ChatActivity extends AppCompatActivity {
     private RelativeLayout mToolbar;
     private Button backButton;
     private ImageButton sendMessage;
-    private TextView message_input, username_display;
+    private TextView message_input, username_display, last_seen;
     private FirebaseAuth mAuth;
     private DatabaseReference his_referrence, my_referrence, my_message_referrence, his_message_referrence;
     private int message_count;
@@ -68,6 +69,10 @@ public class ChatActivity extends AppCompatActivity {
         his_referrence=FirebaseDatabase.getInstance().getReference().child("Users").child(his_ID);
         my_message_referrence=my_referrence.child("chats").child(his_ID.toString());
         his_message_referrence=his_referrence.child("chats").child(mAuth.getCurrentUser().getUid().toString());
+
+
+
+
         my_referrence.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -85,6 +90,10 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 his_name=dataSnapshot.child("name").getValue().toString();
+                if(dataSnapshot.child("status").getValue().toString().equals("online")){
+                last_seen.setText("online");}
+                else if (dataSnapshot.hasChild("last_seen")){
+                    last_seen.setText(dataSnapshot.child("last_seen").getValue().toString());}
                 username_display.setText(his_name);
                 if (dataSnapshot.hasChild("image")){
                     his_dp=dataSnapshot.child("image").getValue().toString();
@@ -117,12 +126,14 @@ public class ChatActivity extends AppCompatActivity {
                     String time = format.format( new Date()   );
                     String Message= message_input.getText().toString();
                     HashMap<String, Object> messageMap=new HashMap<>();
+                    int i = (int) new Date().getTime();
                     messageMap.put("datetime", time);
                     messageMap.put("message", Message);
                     messageMap.put("sender",myname);
-                    String s=String.valueOf(message_count+1);
-                    my_message_referrence.child(s).updateChildren(messageMap);
-                    his_message_referrence.child(s).updateChildren(messageMap);
+                    String s=String.valueOf(i);
+                    my_message_referrence.child("messages").child(s).updateChildren(messageMap);
+                    his_message_referrence.child("messages").child(s).updateChildren(messageMap);
+                    my_message_referrence.child("last_message").setValue(i);
                     chatRecyclerList.smoothScrollToPosition(chatRecyclerList.getAdapter().getItemCount());
                     message_input.setText("");
                 }
@@ -139,7 +150,7 @@ public class ChatActivity extends AppCompatActivity {
         });
         FirebaseRecyclerOptions<Messages> options =
                 new FirebaseRecyclerOptions.Builder<Messages>()
-                        .setQuery(my_message_referrence, Messages.class)
+                        .setQuery(my_message_referrence.child("messages"), Messages.class)
                         .build();
 
         final FirebaseRecyclerAdapter<Messages, chatViewHolder> adapter =
@@ -148,7 +159,7 @@ public class ChatActivity extends AppCompatActivity {
                     protected void onBindViewHolder(@NonNull final ChatActivity.chatViewHolder holder, final int position, @NonNull Messages model) {
                         holder.sender.setText(model.getSender());
                         holder.message.setText(model.getMessage());
-                        holder.datetime.setText(model.getDatetime().toString());
+                        holder.datetime.setText(model.getDatetime());
                         if(!holder.sender.getText().toString().equals(myname)){
                            holder.l.setGravity(Gravity.LEFT);
                         }
@@ -218,6 +229,7 @@ public class ChatActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+
         super.onStart();
 
 
@@ -232,6 +244,7 @@ public class ChatActivity extends AppCompatActivity {
         chatRecyclerList.setLayoutManager(new LinearLayoutManager(this));
         username_display=(TextView) findViewById(R.id.username);
         user_image=(CircleImageView) findViewById(R.id.profileImage);
+        last_seen=(TextView) findViewById(R.id.custom_user_last_seen);
 
 
     }
