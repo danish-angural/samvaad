@@ -84,13 +84,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-    updateStatus("offline");
+        if(currentUser!=null){
+    updateStatus("offline");}
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        updateStatus("offline");
+        if(currentUser!=null){
+        updateStatus("offline");}
     }
 
     private void VerifyUserExistence() {
