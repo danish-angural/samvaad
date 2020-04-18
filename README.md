@@ -21,3 +21,5 @@ some edits i will add later-
 1) corrected the delete message functionality by setting the key to each message dependent on time and not the number of messages present.
 2) added the last seen and online functionality.
 3) changed the chat acivity so that the latest chat comes up first.
+
+ps- online functionality causing app to slow down because of repeated change in state, so will have to be removed.
