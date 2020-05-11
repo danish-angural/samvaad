@@ -23,3 +23,4 @@ some edits i will add later-
 3) changed the chat acivity so that the latest chat comes up first.
 
 ps- online functionality causing app to slow down because of repeated change in state, so will have to be removed.
+edit: the online functionality has been removed
