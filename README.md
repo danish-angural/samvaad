@@ -16,3 +16,10 @@ some edits i will add later-
 3. enable notifications.
 4. restrict the users displayed in find friends column.
 5. uploading profile image from camera.
+
+**EDIT 1** at 6:30am/ 18.04.20
+1) corrected the delete message functionality by setting the key to each message dependent on time and not the number of messages present.
+2) added the last seen and online functionality.
+3) changed the chat acivity so that the latest chat comes up first.
+
+ps- online functionality causing app to slow down because of repeated change in state, so will have to be removed.

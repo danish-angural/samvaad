@@ -77,21 +77,12 @@ public class MainActivity extends AppCompatActivity {
 
         else {
             VerifyUserExistence();
-            updateStatus("online");
+            
         }
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-    updateStatus("offline");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        updateStatus("offline");
-    }
+   
+    
 
     private void VerifyUserExistence() {
         String currentUserId=mAuth.getCurrentUser().getUid();
